@@ -24,6 +24,7 @@ ReactServerHTMLPlugin.prototype.apply = function (compiler) {
 
     const virtualConsole = new jsdom.VirtualConsole()
     virtualConsole.on('error', (err) => { console.log(err) })
+    virtualConsole.on('info', (info) => { console.log("===== sys info ==== ", info)})
 
     const server = await app.listen(3000)
     const html = await templateSource.source()
